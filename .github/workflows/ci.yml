@@ -17,13 +17,19 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: [ 'node' ] # Usar sempre a última versão do Node.js
+        node-version: 'node'
 
     - name: Install dependencies
       run: npm install
 
     - name: Run tests & Generate reports
       run: npm run test:report
+
+    - name: Upload test reports
+      uses: actions/upload-artifact@v3
+      with:
+        name: mochawesome-report
+        path: mochawesome-report
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v4
