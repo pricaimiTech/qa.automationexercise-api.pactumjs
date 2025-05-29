@@ -71,7 +71,6 @@ Além disso implementar:
 ├── helpers/     # Arquivos de utilidades e configuração 
 │ │ │ └── expectedMessageResponses.js # Objetos com respostas esperadas 
 │ │ │ └── testSetup # Configurações globais para os testes (ex: baseURL) 
-├── report/     # pasta para armazenar o report
 ├── schemas/ # Schemas Joi para validação de contrato 
 │ ├── category/ 
 │ │ ├── categorySchema.js 
