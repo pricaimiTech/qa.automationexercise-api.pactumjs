@@ -4,9 +4,9 @@
   "description": "Desafio técnico, automação de API com pactum.js",
   "main": "index.js",
   "scripts": {
-    "test:contract": "mocha ./test/contract/**/*.test.js --file test/helpers/testSetup.js",
-    "test:functional": "mocha ./test/functional/**/*.test.js --file test/helpers/testSetup.js",
-    "test:all": "mocha ./test/**/*.test.js --file test/helpers/testSetup.js",
+    "test:contract": "mocha ./test/contract/**/*.test.js --file helpers/testSetup.js",
+    "test:functional": "mocha ./test/functional/**/*.test.js --file helpers/testSetup.js",
+    "test:all": "mocha ./test/**/*.test.js --file helpers/testSetup.js",
     "report:clean": "rimraf mochawesome-report",
     "report:generate": "marge mochawesome-report/mochawesome.json -f report -o mochawesome-report --inline",
     "test:report": "npm run report:clean && (mocha ./test/**/*.test.js --file test/helpers/testSetup.js --reporter mochawesome --reporter-options reportFilename=mochawesome,reportDir=mochawesome-report,quiet=true,json=true || true) && npm run report:generate",
@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/pricaimiTech/qa.automationexercise-api.pactumjs#readme",
   "devDependencies": {
+    "@faker-js/faker": "^9.8.0",
     "eslint": "^9.27.0",
     "eslint-plugin-mocha": "^11.1.0",
     "joi": "^17.13.3",
