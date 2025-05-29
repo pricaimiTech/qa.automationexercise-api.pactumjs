@@ -6,7 +6,7 @@
   "scripts": {
     "test:contract": "mocha ./test/contract/**/*.test.js --file helpers/testSetup.js",
     "test:functional": "mocha ./test/functional/**/*.test.js --file helpers/testSetup.js",
-    "test:all": "mocha ./test/**/*.test.js --file test/helpers/testSetup.js",
+    "test:all": "mocha ./test/**/*.test.js --file helpers/testSetup.js",
     "report:clean": "rimraf mochawesome-report",
     "report:generate": "marge mochawesome-report/mochawesome.json -f report -o mochawesome-report --inline",
     "test:report": "npm run report:clean && (mocha ./test/**/*.test.js --file test/helpers/testSetup.js --reporter mochawesome --reporter-options reportFilename=mochawesome,reportDir=mochawesome-report,quiet=true,json=true || true) && npm run report:generate",

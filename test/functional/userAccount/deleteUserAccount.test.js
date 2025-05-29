@@ -9,16 +9,23 @@ const {
 } = require('../../../helpers/expectedMessageResponses.js')
 
 describe('API 12: Validar a remoção de usuários', () => {
+    let newUserFaker;
     let userEmail;
     let userPassword;
+    let payload;
 
-    beforeEach(() => {});
-
-    it('[SetUp] Criar um novo registro de Usuário com sucesso', async () => {
-        const newUserFaker = generateValidUserData()
+    before(() => {
+        newUserFaker = generateValidUserData()
         userEmail = newUserFaker.email
         userPassword = newUserFaker.password
 
+        payload = {
+            email: userEmail,
+            password: userPassword
+        }
+    })
+
+    it('[SetUp] Criar um novo registro de Usuário com sucesso', async () => {
         await pactum.spec()
             .post('/createAccount')
             .withForm(newUserFaker)
@@ -32,12 +39,6 @@ describe('API 12: Validar a remoção de usuários', () => {
         if (!userEmail || !userPassword) {
             throw new Error("SetUp não executado! Necessário a criação de um usuário para este teste!");
         }
-
-        const payload = {
-            email: userEmail,
-            password: userPassword
-        }
-
         await pactum.spec()
             .delete('/deleteAccount')
             .withForm(payload)
@@ -50,14 +51,9 @@ describe('API 12: Validar a remoção de usuários', () => {
             throw new Error("SetUp não executado! Necessário a criação de um usuário para este teste!");
         }
 
-        const loginPayload = {
-            email: userEmail,
-            password: userPassword,
-        };
-
         await pactum.spec()
             .post('/verifyLogin')
-            .withForm(loginPayload)
+            .withForm(payload)
             .expectStatus(200)
             .expectJsonLike(loginErrorUserNotFound);
     });

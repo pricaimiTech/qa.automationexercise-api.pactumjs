@@ -8,14 +8,18 @@ const {
 } = require('../../../helpers/expectedMessageResponses.js')
 
 describe('API 11: Validar a criação de um novo registro de Usuário', () => {
-    let firstUserEmail
+    let newUserFaker;
+    let secondUserFaker;
 
-    beforeEach(() => {});
+    before(() => {
+        newUserFaker = generateValidUserData()
+        secondUserFaker = generateValidUserData({
+            email: newUserFaker.email,
+            name: 'Duplicate Test User'
+        })
+    })
 
     it('[CT001] Criar um novo registro de Usuário com sucesso', async () => {
-        const newUserFaker = generateValidUserData()
-        firstUserEmail = newUserFaker.email
-
         await pactum.spec()
             .post('/createAccount')
             .withForm(newUserFaker)
@@ -26,11 +30,6 @@ describe('API 11: Validar a criação de um novo registro de Usuário', () => {
     });
 
     it('[CT002] Tentar criar um usuário com um e-mail que já existe', async () => {
-        const secondUserFaker = generateValidUserData({
-            email: firstUserEmail,
-            name: 'Duplicate Test User'
-        })
-
         await pactum.spec()
             .post('/createAccount')
             .withForm(secondUserFaker)
