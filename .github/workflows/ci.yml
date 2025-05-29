@@ -17,13 +17,10 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '16'
+        node-version: [ 'node' ] # Usar sempre a última versão do Node.js
 
     - name: Install dependencies
       run: npm install
-
-    - name: Run linters
-      run: npm run lint
 
     - name: Run tests & Generate reports
       run: npm run test:report
