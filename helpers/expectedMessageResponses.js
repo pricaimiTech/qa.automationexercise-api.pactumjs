@@ -1,6 +1,6 @@
 const userCreationSuccess = {
     responseCode: 201,
-    message: "User created!"
+    message: 'User created!'
 }
 
 const userCreationFailedEmailExists = {
@@ -15,7 +15,7 @@ const userDeletionSuccess = {
 
 const loginErrorUserNotFound = {
     responseCode: 404,
-    message: "User not found!"
+    message: 'User not found!'
 }
 
 module.exports = {

@@ -37,7 +37,7 @@ describe('API 12: Validar a remoção de usuários', () => {
 
     it('[CT001] Remover um registro de Usuário com sucesso', async () => {
         if (!userEmail || !userPassword) {
-            throw new Error("SetUp não executado! Necessário a criação de um usuário para este teste!");
+            throw new Error('SetUp não executado! Necessário a criação de um usuário para este teste!');
         }
         await pactum.spec()
             .delete('/deleteAccount')
@@ -48,7 +48,7 @@ describe('API 12: Validar a remoção de usuários', () => {
 
     it('[CT002] Validar bloqueio do login após usuário ser removido', async () => {
         if (!userEmail || !userPassword) {
-            throw new Error("SetUp não executado! Necessário a criação de um usuário para este teste!");
+            throw new Error('SetUp não executado! Necessário a criação de um usuário para este teste!');
         }
 
         await pactum.spec()
