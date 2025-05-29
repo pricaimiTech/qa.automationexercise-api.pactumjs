@@ -30,9 +30,3 @@ jobs:
       with:
         name: mochawesome-report
         path: mochawesome-report
-
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3.1.12
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./mochawesome-report
