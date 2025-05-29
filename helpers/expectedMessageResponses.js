@@ -8,8 +8,19 @@ const userCreationFailedEmailExists = {
     message: 'Email already exists!',
 };
 
+const userDeletionSuccess = {
+    responseCode: 200,
+    message: 'Account deleted!',
+};
+
+const loginErrorUserNotFound = {
+    responseCode: 404,
+    message: "User not found!"
+}
 
 module.exports = {
     userCreationSuccess,
     userCreationFailedEmailExists,
+    userDeletionSuccess,
+    loginErrorUserNotFound
 };

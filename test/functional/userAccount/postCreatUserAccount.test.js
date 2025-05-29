@@ -35,15 +35,14 @@ describe('API 11: Validar a criação de um novo registro de Usuário', () => {
             .post('/createAccount')
             .withForm(secondUserFaker)
             .expectStatus(200)
-            .expectJson('responseCode', userCreationFailedEmailExists.responseCode)
-            .expectJson('message', userCreationFailedEmailExists.message)
+            .expectJsonLike(userCreationFailedEmailExists)
     });
 
     it('[CT003] Tentar criar um usuário com campos obrigatórios faltando', () => {
 
     });
 
-    it('[CT004] Tentar criar um usuário com dados inválidos (ex: formato de e-mail incorreto)', () => {
+    it('[CT004] Tentar criar um usuário com dados inválidos', () => {
 
     });
 
