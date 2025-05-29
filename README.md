@@ -1,4 +1,5 @@
 # Projeto de Automação de Testes de API com PactumJS para Automation Exercise
+[![API with Pactum CI](https://github.com/pricaimiTech/qa.automationexercise-api.pactumjs/actions/workflows/ci.yml/badge.svg)](https://github.com/pricaimiTech/qa.automationexercise-api.pactumjs/actions/workflows/ci.yml)
 
 Este projeto contém uma suíte de testes automatizados para a API do [Automation Exercise](https://automationexercise.com/api_testing), utilizando PactumJS, Mocha, Chai e Joi.
 
@@ -7,14 +8,31 @@ Este projeto contém uma suíte de testes automatizados para a API do [Automatio
 A documentação da API do Automation Exercise pode ser encontrada em:
 [https://automationexercise.com/api_testing](https://automationexercise.com/api_testing)
 
-## Visão Geral
+# O desafio
+
+### Visão Geral
 
 O objetivo deste projeto é demonstrar a criação de testes de API robustos, cobrindo:
 
 *   **Testes Funcionais:** Verificando a lógica de negócios e o comportamento dos endpoints.
 *   **Testes de Contrato:** Garantindo que a estrutura (schema) das requisições e respostas da API permaneça consistente.
 
-## Tecnologias Utilizadas
+Além disso implementar: 
+
+- [x] O código deve ser de fácil entendimento.
+- [x] O código deve seguir um padrão.
+- [x] Testes organizados em suítes.
+- [x] Performance de execução dos testes.
+- [x] Organização do código, testes, pastas e demais arquivos.
+- [x] Integração com algum relatório.
+- [x] Pipeline configurada no GitHub Action
+- [x] O arquivo readme.md do projeto deve explicar quais configurações são necessárias, além de como instalar e executar o projeto.
+- [x] Para os testes funcionais de API, será avaliado o uso do seu conhecimento teórico para desenvolver os testes.
+
+
+
+
+### Tecnologias Utilizadas
 
 *   **Node.js:** Ambiente de execução JavaScript.
 *   **npm:** Gerenciador de pacotes Node.js.
@@ -24,12 +42,12 @@ O objetivo deste projeto é demonstrar a criação de testes de API robustos, co
 *   **Joi:** Biblioteca para validação de schemas de objetos (contratos).
 *   **Mochawesome:** Gerador de relatórios HTML para os resultados dos testes Mocha.
 
-## Pré-requisitos
+### Pré-requisitos
 
 *   [Node.js](https://nodejs.org/) (versão 16.x, 18.x ou superior recomendada)
 *   npm (geralmente instalado com o Node.js)
 
-## Instalação e Configuração
+### Instalação e Configuração
 
 1.  **Clone o repositório:**
     ```bash
@@ -46,7 +64,7 @@ O objetivo deste projeto é demonstrar a criação de testes de API robustos, co
 3.  **Configuração da URL Base (se necessário):**
     A URL base da API (`https://automationexercise.com/api`) é configurada no arquivo `test/helpers/testSetup.js`. Modifique-o se necessário.
 
-## Estrutura do Projeto
+### Estrutura do Projeto
 ```bash
 ├── data/
 │ ├── user.data.js # Funções para gerar dados de teste 
@@ -78,7 +96,7 @@ O objetivo deste projeto é demonstrar a criação de testes de API robustos, co
 └── README.md # Este arquivo
 ```
 
-## Executando os Testes
+### Executando os Testes
 
 Os seguintes scripts NPM estão configurados no `package.json` para executar os testes:
 
@@ -101,11 +119,11 @@ Os seguintes scripts NPM estão configurados no `package.json` para executar os 
     ```bash
     npm run test:report
     ```
-    Após a execução, o relatório HTML estará disponível na pasta `mochawesome-report/`. Abra o arquivo `mochawesome.html` em um navegador para visualizar.
+    Após a execução, o relatório HTML estará disponível na pasta `mochawesome-report/`. Abra o arquivo `mochawesome.html` em um navegador para visualizar. E possível consultar o último relatório no github action
 
-## Detalhes dos Testes Implementados
+### Detalhes dos Testes Implementados
 
-### Testes Funcionais
+#### Testes Funcionais
 
 Localizados em `test/functional/`:
 
@@ -117,7 +135,7 @@ Localizados em `test/functional/`:
     *   Testa a tentativa de deleção com senha incorreta. //TO-DO
     *   Testa a tentativa de deleção de um usuário inexistente. //TO-DO
 
-### Testes de Contrato
+#### Testes de Contrato
 
 Localizados em `test/contract/`:
 
@@ -125,7 +143,6 @@ Localizados em `test/contract/`:
     *   Valida se a estrutura e os tipos de dados da resposta da API `/productsList` correspondem ao schema Joi definido em `schemas/product/productSchema.js`.
 *   **Deleção de Conta (`deleteUserAccount.test.js` - exemplo):**
     *   Valida se a estrutura da resposta da API `/deleteAccount` (em caso de sucesso) corresponde ao schema Joi definido em `schemas/generals/expectMessageSchema.js`.
-
 
 
 
