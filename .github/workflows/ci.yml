@@ -26,7 +26,7 @@ jobs:
       run: npm run test:report
 
     - name: Upload test reports
-      uses: actions/upload-artifact@v3.0.0
+      uses: actions/upload-artifact@v3
       with:
         name: mochawesome-report
         path: mochawesome-report
